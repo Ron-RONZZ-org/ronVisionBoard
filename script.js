@@ -1,5 +1,10 @@
 // Vision Board Interactive Features
 
+// Constants
+const ANIMATION_STAGGER_DELAY = 150; // milliseconds between zone animations
+const ICON_ANIMATION_DURATION = 500; // milliseconds for icon rotation
+const IMAGE_ANIMATION_DURATION = 300; // milliseconds for image scale
+
 document.addEventListener('DOMContentLoaded', function() {
     // Add smooth animations on page load
     const zones = document.querySelectorAll('.zone');
@@ -12,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             zone.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             zone.style.opacity = '1';
             zone.style.transform = 'translateY(0)';
-        }, index * 150);
+        }, index * ANIMATION_STAGGER_DELAY);
     });
 
     // Add click animation to icons
@@ -22,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1.3) rotate(360deg)';
             setTimeout(() => {
                 this.style.transform = 'scale(1) rotate(0deg)';
-            }, 500);
+            }, ICON_ANIMATION_DURATION);
         });
     });
 
@@ -33,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1.1) rotate(2deg)';
             setTimeout(() => {
                 this.style.transform = 'scale(1) rotate(0deg)';
-            }, 300);
+            }, IMAGE_ANIMATION_DURATION);
         });
     });
 
